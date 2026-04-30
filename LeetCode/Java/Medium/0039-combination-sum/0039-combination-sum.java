@@ -11,10 +11,8 @@ class Solution {
         }
         if (sum > target) return answer;
         for(int i = start; i < candidates.length; i++) {
-            sum += candidates[i];
             curr.add(candidates[i]);
-            answer.addAll(dfs(candidates, target, sum, i, curr));
-            sum -= candidates[i];
+            answer.addAll(dfs(candidates, target, candidates[i]+ sum, i, curr));
             curr.remove(curr.size() - 1);
         }
 
