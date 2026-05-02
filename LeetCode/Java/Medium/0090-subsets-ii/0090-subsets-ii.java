@@ -10,6 +10,7 @@ class Solution {
         answer.add(new ArrayList<>(curr));
         for(int i = start; i < nums.length; i++) {
             if(i > 0 && nums[i] == nums[i-1] && !visited[i-1]) continue;
+            if(visited[i]) continue;
             visited[i] = true;
             curr.add(nums[i]);
             answer.addAll(dfs(nums, i+1, curr, visited));
